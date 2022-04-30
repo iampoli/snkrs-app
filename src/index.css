@@ -1,13 +1,43 @@
-body {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Akshar:wght@300;400;500;600;700&display=swap');
+
+*{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Akshar', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.nav-hover:after{
+  transition: opacity .1s ease-in;
+  content: "";
+  display: block;
+  height: 2px;
+  opacity: 0;
+  background-color: #111;
 }
+
+.nav-hover.active::after{
+  content: "";
+  display: block;
+  height: 2px;
+  opacity: 1;
+  background-color: #111;
+}
+
+.nav-hover:hover:after{
+  content: "";
+  display: block;
+  height: 2px;
+  opacity: 1;
+  background-color: #111;
+}
+
+
