@@ -10,6 +10,7 @@
 }
 
 body {
+  color: #111;
   font-family: 'Akshar', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

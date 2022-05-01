@@ -1,14 +1,16 @@
 import Aos from 'aos';
+import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import React from 'react'
 import 'aos/dist/aos.css';
 
-function Card({shoe}) {
+function Card({shoe,setSnkr}) {
     useEffect(()=>{
         Aos.init();
     })
   return (
-    <div data-aos="fade" data-aos-duration="600" data-aos-once="true" data-aos-easing="linear" className='card rounded-lg relative drop-shadow-lg overflow-hidden  bg-white cursor-pointer group'>
+    <div onClick={()=>setSnkr(shoe)} data-aos="fade" data-aos-duration="600" data-aos-once="true" data-aos-easing="linear" className='card rounded-lg relative drop-shadow-lg overflow-hidden  bg-white cursor-pointer group'>
+        <Link to="/overview">
         <div className='py-24 px-4 '>
             <img src={shoe.media.smallImageUrl} alt="" />
             
@@ -23,6 +25,7 @@ function Card({shoe}) {
             </div>
         </div>
             <div className='absolute w-full h-full top-0 left-0 group-hover:bg-[rgba(0,0,0,0.1)] group-hover:opacity-40 transition duration-300  ease-linear'></div>
+            </Link>
        
     </div>
   )

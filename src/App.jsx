@@ -4,11 +4,14 @@ import { BrowserRouter as Router, Routes ,Route} from "react-router-dom";
 import Feed from "./pages/Feed";
 import InStock from "./pages/InStock";
 import UpComing from "./pages/UpComing";
+import OverView from "./components/OverView";
 
 
 function App() {
   const [data,setData] = useState([]);
-
+  const [snkr,setSnkr] = useState({});
+  const [cart,setCart] = useState([]);
+  console.log(cart)
   useEffect(()=>{
     callData();
   },[])
@@ -32,11 +35,13 @@ function App() {
   return (
     <Router>
     <div className="App">
-      <Nav/>
+      <Nav cart={cart}/>
       <Routes>
-        <Route path="/" element={<Feed/>}/>
-        <Route path="/in-stock" element={<InStock data={data}/>}/>
+        <Route path="/" element={<InStock data={data} setSnkr={setSnkr}/>}/>
+        <Route path="/feed" element={<Feed/>}/>
         <Route path="/up-coming" element={<UpComing/>}/>
+        <Route path="/overview" element={<OverView snkr={snkr} setCart={setCart}/>}/>
+
       </Routes>
     </div>
     </Router>
